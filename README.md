@@ -1,24 +1,31 @@
-# Serenity Hands And Harmony
+# Myla Thai Spa — Natural Divinity
 
-massage parlour website
+Official website for **Myla Thai Spa**, located at Unit-09, Lower Ground Floor, Phoenix United Mall, Lucknow 226012.
 
-This project was built with [Lovable](https://lovable.dev).
+## Features
 
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/c682b99b-4c97-5c01-aa84-14727da6cfc0).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+- **Services & Pricing**: Transparent rates for 9 authentic therapies across Massage Therapies & Body Treatments.
+- **Appointment Booking**: Real-time slot selection (10:00 AM – 8:00 PM) with instant WhatsApp pre-filled booking.
+- **Interactive Google Maps**: Integrated directions and direct navigation to Phoenix United Mall.
+- **Genuine Guest Reviews**: Dual-row smooth marquee of verified Google Maps reviews.
+- **Full Responsive Design**: Optimized for mobile, tablet, and desktop viewports.
 
 ## Development
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+```sh
+npm install
+npm run dev
+```
+
+## Testing
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
+npm test
+```
+
+## Production Build
+
+```sh
+npm run build
+npm run preview
 ```

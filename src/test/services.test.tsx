@@ -190,4 +190,18 @@ describe("Services & Pricing specifications", () => {
     expect(chromeContent).toContain("SPA_BUSINESS.logo");
     expect(SPA_BUSINESS.logo).toBe("/myla thai spa logo.jpeg");
   });
+
+  it("ensures all Lovable dependencies, configs, and files are removed", async () => {
+    const fs = await import("node:fs");
+    const pkg = JSON.parse(fs.readFileSync("package.json", "utf-8"));
+    const viteConfig = fs.readFileSync("vite.config.ts", "utf-8");
+    const rootRoute = fs.readFileSync("src/routes/__root.tsx", "utf-8");
+
+    expect(pkg.devDependencies?.["@lovable.dev/vite-tanstack-config"]).toBeUndefined();
+    expect(pkg.dependencies?.["@lovable.dev/vite-tanstack-config"]).toBeUndefined();
+    expect(viteConfig).not.toContain("@lovable.dev");
+    expect(rootRoute).not.toContain("lovable");
+    expect(fs.existsSync(".lovable")).toBe(false);
+    expect(fs.existsSync("src/lib/lovable-error-reporting.ts")).toBe(false);
+  });
 });
