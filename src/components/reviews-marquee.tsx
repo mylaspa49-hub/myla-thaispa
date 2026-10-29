@@ -1,6 +1,8 @@
-import { Star } from "lucide-react";
+import { ExternalLink, Star } from "lucide-react";
 import {
   GOOGLE_REVIEWS,
+  GOOGLE_REVIEWS_COUNT,
+  GOOGLE_REVIEW_URL,
   REVIEWS_ROW_1,
   REVIEWS_ROW_2,
   type GoogleReview,
@@ -76,7 +78,7 @@ export function ReviewsMarquee() {
   return (
     <section className="relative overflow-hidden border-t border-[#E6DEC8] bg-[#FFFDF9] py-20 px-0">
       {/* Header */}
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center mb-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center mb-10">
         <div className="inline-flex items-center gap-2 rounded-full border border-[#E6DEC8] bg-[#FAF8F5] px-4 py-1.5 shadow-xs mb-3">
           <GoogleIcon className="size-4" />
           <span className="flex text-[#B8860B] text-xs">★★★★★</span>
@@ -84,7 +86,7 @@ export function ReviewsMarquee() {
             Google Maps Reviews
           </span>
           <span className="text-xs font-numeric font-bold text-[#B8860B]">
-            5.0 ({GOOGLE_REVIEWS.length}+)
+            5.0 ({GOOGLE_REVIEWS_COUNT})
           </span>
         </div>
         <h2 className="font-display text-3xl sm:text-4xl text-[#2C2623]">
@@ -93,6 +95,21 @@ export function ReviewsMarquee() {
         <p className="mt-2 text-sm text-[#6F6760] max-w-xl mx-auto font-sans">
           Real guest feedback from visitors at Phoenix United Mall, Lucknow.
         </p>
+
+        {/* Review Us Button in Testimonials Header */}
+        <div className="mt-6 flex items-center justify-center">
+          <a
+            href={GOOGLE_REVIEW_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border border-[#DECDB3] bg-white px-5 py-2.5 text-xs sm:text-sm font-semibold text-[#2C2623] shadow-xs transition-all hover:border-[#B8860B] hover:bg-[#FAF8F5] hover:text-[#B8860B] hover:shadow-md hover:scale-105 active:scale-95"
+            aria-label="Review Myla Thai Spa on Google Maps"
+          >
+            <GoogleIcon className="size-4" />
+            <span>Review Us on Google</span>
+            <ExternalLink className="size-3.5 text-[#B8860B]" />
+          </a>
+        </div>
       </div>
 
       {/* Cross Marquees with Edge Fade Gradients */}
@@ -124,6 +141,24 @@ export function ReviewsMarquee() {
             ))}
           </div>
         </div>
+      </div>
+
+      {/* Bottom Callout & Secondary Review Button */}
+      <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 px-4 text-center">
+        <p className="text-xs sm:text-sm text-[#6F6760]">
+          Visited Myla Thai Spa recently? We'd love to hear about your experience.
+        </p>
+        <a
+          href={GOOGLE_REVIEW_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 rounded-full border border-[#DECDB3] bg-[#FAF8F5] px-4 py-2 text-xs font-semibold text-[#2C2623] shadow-xs transition-all hover:border-[#B8860B] hover:bg-white hover:text-[#B8860B] hover:scale-105 active:scale-95"
+          aria-label="Write a review on Google"
+        >
+          <GoogleIcon className="size-3.5" />
+          <span>Review Us</span>
+          <ExternalLink className="size-3 text-[#B8860B]" />
+        </a>
       </div>
     </section>
   );

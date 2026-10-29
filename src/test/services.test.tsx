@@ -1,7 +1,13 @@
 import { describe, expect, it } from "vitest";
 import { ALL_SERVICES, SANCTUARY_HIGHLIGHTS, SPA_BUSINESS, SPA_CATEGORIES } from "@/data/spa-data";
 import { HERO_SLIDES } from "@/components/hero-slideshow";
-import { GOOGLE_REVIEWS, REVIEWS_ROW_1, REVIEWS_ROW_2 } from "@/data/reviews-data";
+import {
+  GOOGLE_REVIEWS,
+  GOOGLE_REVIEWS_COUNT,
+  GOOGLE_REVIEW_URL,
+  REVIEWS_ROW_1,
+  REVIEWS_ROW_2,
+} from "@/data/reviews-data";
 
 describe("Services & Pricing specifications", () => {
   it("keeps only two sections: Massage Therapies and Body Treatments (9 services total)", () => {
@@ -118,6 +124,23 @@ describe("Services & Pricing specifications", () => {
     expect(GOOGLE_REVIEWS[33].name).toBe("Radhe 4adhe");
   });
 
+  it("displays 86+ Google reviews count and includes Review Us buttons in the testimonials section", async () => {
+    expect(GOOGLE_REVIEWS_COUNT).toBe("86+");
+    expect(GOOGLE_REVIEW_URL).toContain("1948119791826895197");
+    expect(SPA_BUSINESS.reviewsCount).toBe("86+");
+    expect(SPA_BUSINESS.googleReviewUrl).toBe(GOOGLE_REVIEW_URL);
+
+    const fs = await import("node:fs");
+    const marqueeContent = fs.readFileSync("src/components/reviews-marquee.tsx", "utf-8");
+
+    expect(marqueeContent).toContain("5.0 ({GOOGLE_REVIEWS_COUNT})");
+    expect(marqueeContent).toContain("Review Us on Google");
+    expect(marqueeContent).toContain("Review Us");
+    expect(marqueeContent).toContain("GOOGLE_REVIEW_URL");
+    expect(marqueeContent).toContain('target="_blank"');
+    expect(marqueeContent).toContain('rel="noopener noreferrer"');
+  });
+
   it("organizes contact page layout so booking form follows primary line on mobile", async () => {
     const fs = await import("node:fs");
     const contactContent = fs.readFileSync("src/routes/contact.tsx", "utf-8");
@@ -132,6 +155,20 @@ describe("Services & Pricing specifications", () => {
     expect(contactContent).toContain("order-3 md:order-none");
     expect(contactContent).toContain("order-4 md:order-none");
     expect(contactContent).toContain("order-5 md:order-none");
+  });
+
+  it("aligns Call and WhatsApp buttons in Primary Appointment Line card side by side with matching height and shape without number in call button", async () => {
+    const fs = await import("node:fs");
+    const contactContent = fs.readFileSync("src/routes/contact.tsx", "utf-8");
+
+    // Check flex layout container
+    expect(contactContent).toContain("mt-4 flex items-center gap-3");
+    // Check call button has no number text
+    expect(contactContent).not.toContain("Call to Book: <span");
+    expect(contactContent).toContain("<span>Call to Book</span>");
+    // Check equal flex, height, and pill shape on both buttons
+    expect(contactContent).toContain("flex-1 flex h-11 items-center justify-center gap-2 rounded-full bg-[#B8860B]");
+    expect(contactContent).toContain("flex-1 flex h-11 items-center justify-center gap-2 rounded-full bg-[#25D366]");
   });
 
   it("provides separate date and time input fields with 10 AM to 8 PM slot dropdown", async () => {

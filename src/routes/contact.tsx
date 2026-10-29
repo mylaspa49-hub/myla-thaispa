@@ -136,22 +136,22 @@ export function ContactBookingSection({
                   Direct line to reception desk for instant slot confirmations.
                 </p>
 
-                <div className="mt-4 flex flex-wrap items-center gap-3">
+                <div className="mt-4 flex items-center gap-3">
                   <a
                     href={SPA_BUSINESS.phoneTel}
-                    className="inline-flex items-center gap-2 rounded-full bg-[#B8860B] px-6 py-2.5 text-xs font-semibold text-white shadow-sm hover:bg-[#996e08] transition-colors"
+                    className="flex-1 flex h-11 items-center justify-center gap-2 rounded-full bg-[#B8860B] px-4 text-xs sm:text-sm font-semibold text-white shadow-xs transition-all hover:bg-[#996e08] hover:scale-[1.02] active:scale-95 text-center"
                   >
-                    <Phone className="size-3.5" />
-                    Call to Book: <span className="font-numeric tracking-wide font-bold">{SPA_BUSINESS.phoneDisplay}</span>
+                    <Phone className="size-4 shrink-0" />
+                    <span>Call to Book</span>
                   </a>
 
                   <a
                     href={SPA_BUSINESS.whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 rounded-full bg-[#25D366] px-5 py-2.5 text-xs font-semibold text-white shadow-sm hover:bg-[#20ba59] transition-all"
+                    className="flex-1 flex h-11 items-center justify-center gap-2 rounded-full bg-[#25D366] px-4 text-xs sm:text-sm font-semibold text-white shadow-xs transition-all hover:bg-[#20ba59] hover:scale-[1.02] active:scale-95 text-center"
                   >
-                    <WhatsAppIcon className="size-3.5" />
+                    <WhatsAppIcon className="size-4 shrink-0" />
                     <span>WhatsApp</span>
                   </a>
                 </div>

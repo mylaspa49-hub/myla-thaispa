@@ -4,6 +4,11 @@ export interface GoogleReview {
   message: string;
 }
 
+export const GOOGLE_REVIEWS_COUNT = "86+";
+export const GOOGLE_RATING = "5.0";
+export const GOOGLE_REVIEW_URL =
+  "https://www.google.com/maps?cid=1948119791826895197";
+
 export const GOOGLE_REVIEWS: GoogleReview[] = [
   {
     name: "Rajeev Kumar",

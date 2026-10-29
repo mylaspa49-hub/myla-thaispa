@@ -72,6 +72,9 @@ export const SPA_BUSINESS = {
     full: "Unit-09, Lower Ground Floor, Phoenix United Mall, Lucknow 226012",
   },
   hours: "Open Daily: 10:00 AM – 9:00 PM (Last booking at 8:00 PM)",
+  googleReviewUrl: "https://www.google.com/maps?cid=1948119791826895197",
+  reviewsCount: "86+",
+  rating: "5.0",
 };
 
 export const SPA_CATEGORIES: SpaCategory[] = [
