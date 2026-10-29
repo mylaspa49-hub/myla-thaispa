@@ -204,4 +204,18 @@ describe("Services & Pricing specifications", () => {
     expect(fs.existsSync(".lovable")).toBe(false);
     expect(fs.existsSync("src/lib/lovable-error-reporting.ts")).toBe(false);
   });
+
+  it("renders contact booking section under the testimonials marquee on the home page", async () => {
+    const fs = await import("node:fs");
+    const indexContent = fs.readFileSync("src/routes/index.tsx", "utf-8");
+
+    expect(indexContent).toContain("ReviewsMarquee");
+    expect(indexContent).toContain("ContactBookingSection");
+
+    const reviewsIndex = indexContent.indexOf("<ReviewsMarquee />");
+    const contactIndex = indexContent.indexOf("<ContactBookingSection");
+
+    expect(reviewsIndex).toBeGreaterThan(-1);
+    expect(contactIndex).toBeGreaterThan(reviewsIndex);
+  });
 });

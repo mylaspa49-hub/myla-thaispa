@@ -15,6 +15,7 @@ import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { ServicesPricing } from "@/components/services-pricing";
 import { HeroSlideshow } from "@/components/hero-slideshow";
 import { ReviewsMarquee } from "@/components/reviews-marquee";
+import { ContactBookingSection } from "@/routes/contact";
 import { LocationMapSection } from "@/components/location-map";
 import { WhatsAppIcon } from "@/components/whatsapp-button";
 import { SPA_BUSINESS } from "@/data/spa-data";
@@ -262,6 +263,9 @@ function Index() {
 
         {/* Real Google Maps Reviews - Dual-Row Cross Marquee */}
         <ReviewsMarquee />
+
+        {/* Contact & Appointment Booking Section */}
+        <ContactBookingSection titleTag="h2" />
 
         {/* Location & Directions Map Embed */}
         <LocationMapSection />
