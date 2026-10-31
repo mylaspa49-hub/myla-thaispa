@@ -218,11 +218,12 @@ describe("Services & Pricing specifications", () => {
     expect(chromeContent).toContain("Built with 💻 &amp; ☕.");
   });
 
-  it("configures myla thai spa logo for favicon and navbar logo icon", async () => {
+  it("configures favicon.ico and navbar logo icon", async () => {
     const fs = await import("node:fs");
     const rootContent = fs.readFileSync("src/routes/__root.tsx", "utf-8");
     const chromeContent = fs.readFileSync("src/components/site-chrome.tsx", "utf-8");
 
+    expect(rootContent).toContain('href: "/favicon.ico"');
     expect(rootContent).toContain('href: "/myla thai spa logo.jpeg"');
     expect(chromeContent).toContain("SPA_BUSINESS.logo");
     expect(SPA_BUSINESS.logo).toBe("/myla thai spa logo.jpeg");
